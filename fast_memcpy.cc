@@ -4,6 +4,7 @@
 #include <iostream>
 #include <malloc.h>
 #include <string>
+#include "fast_memcpy.h"
 
 using std::string;
 
@@ -18,7 +19,7 @@ int main() {
     int sended = 0;
     while (sended < kTaskCnt) {
       for (int i = sended; i - sended + 1 <= 16 && i < kTaskCnt; i++) {
-        memcpy(buf2 + i * kTranferSize, buf1 + i * kTranferSize, kTranferSize);
+        memcpy_fast(buf2 + i * kTranferSize, buf1 + i * kTranferSize, kTranferSize);
       }
       sended = std::min(sended + 16, kTaskCnt);
     }

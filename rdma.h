@@ -27,9 +27,9 @@ struct RdmaQpExchangeInfo {
 
 constexpr int kRdmaDefaultPort = 1; // 查询设备信息时使用的默认端口号
 constexpr int kRdmaSl = 0;          // service level
-constexpr int kTranferSize = 4 * 1024;   // UD 一次传输上限
+constexpr size_t kTranferSize = 4 * 1024;   // UD 一次传输上限
 constexpr int kCntPerTranfer = 64;       // 一波执行 256KiB 的拷贝
-constexpr int kTaskCnt = 1024 * 512 * 2; // 一共拷贝 128 GiB
+constexpr int kTaskCnt = 1024 * 512; // 一共拷贝 128 GiB
 constexpr int kPollCqSize = 16;
 constexpr int kRdmaQueueSize = 1024;
 constexpr int kGidIndex = 3; // magic
